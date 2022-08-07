@@ -22,6 +22,7 @@ import {component} from "@gerrico/react-components"
 
 - [Selector](#selector)
 - [BubbleLoader](#bubbleloader)
+- [BounceLoader](#bounceloader)
 
 ## Selector
 
@@ -70,7 +71,7 @@ export default App;
 
 ## BubbleLoader
 
-A loader with twelve bubbles that increase and decrease their size.
+A loader with twelve bubbles that increase and decrease their sizes.
 
 ### Props
 
@@ -91,6 +92,37 @@ const App: React.FC = () => {
   return (
     <div>
       <BubbleLoader left="50vw" top="50vh" color="#20E080" />
+    </div>
+  );
+};
+
+export default App;
+```
+
+## BounceLoader
+
+A loader with three bouncing balls.
+
+### Props
+
+|Name|Description|Type|Required|Default|
+|-|-|-|-|-|
+|left?|Set the distance from the left margin|any|No|50vw|
+|top?|Set the distance from the top margin|any|No|50vh|
+|color?|The color of the bubbles|string|No|#DDD|
+|size|A moltiplicator for ball sizes|number|No|1|
+|className?|Provide other style|string|No|undefined|
+
+### Example
+
+```Javascript
+import React from "react";
+import { BounceLoader } from "./components";
+
+const App: React.FC = () => {
+  return (
+    <div>
+      <BounceLoader left="50vw" top="50vh" color="#2080E0" size={0.8}/>
     </div>
   );
 };
