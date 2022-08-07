@@ -6,12 +6,12 @@ const App: React.FC = () => {
   const [status, setStatus] = useState(false);
 
   return (
-    <div className="App">
+    <div className="App" data-testid="test-selector">
       <Selector
         id="selector"
         status={status}
         onClick={() => setStatus(!status)}
-        items={["", ""]}
+        items={["ON", "OFF"]}
         colorOn="#F0D000"
       />
     </div>

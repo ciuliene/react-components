@@ -1,9 +1,21 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+//   ____       _           _
+//  / ___|  ___| | ___  ___| |_ ___  _ __
+//  \___ \ / _ \ |/ _ \/ __| __/ _ \| '__|
+//   ___) |  __/ |  __/ (__| || (_) | |
+//  |____/ \___|_|\___|\___|\__\___/|_|
+
+test("Selector ON", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const selector = screen.getByText(/ON/i);
+  expect(selector).toBeInTheDocument();
+});
+
+test("Selector OFF", () => {
+  render(<App />);
+  const selector = screen.getByText(/OFF/i);
+  expect(selector).toBeInTheDocument();
 });
