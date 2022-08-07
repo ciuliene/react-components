@@ -4,6 +4,10 @@
   "private": false,
   "main": "./dist/index.ts",
   "types": "./dist/Selector/index.d.ts",
+  "repository": {
+    "url": "https://github.com/ciuliene/react-components",
+    "type": "git"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
