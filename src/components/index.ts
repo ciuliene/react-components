@@ -1,2 +1,3 @@
 import { Selector } from "./Selector";
-export { Selector };
+import { BubbleLoader } from "./BubbleLoader";
+export { Selector, BubbleLoader };

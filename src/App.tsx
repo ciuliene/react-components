@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Selector } from "./components";
+import { Selector, BubbleLoader } from "./components";
 import "./App.css";
 
 const App: React.FC = () => {
@@ -14,6 +14,7 @@ const App: React.FC = () => {
         items={["ON", "OFF"]}
         colorOn="#F0D000"
       />
+      <BubbleLoader left="50vw" top="58vh" color="#20E080" />
     </div>
   );
 };
