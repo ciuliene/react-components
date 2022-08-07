@@ -1,46 +1,67 @@
-# Getting Started with Create React App
+# React Components
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This library provides a list of useful components for React projects
 
-## Available Scripts
+## Install
 
-In the project directory, you can run:
+To install the library, run this command:
 
-### `npm start`
+```sh
+npm install @gerrico/react-components
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Usage
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To import components add this statement to your code:
 
-### `npm test`
+```Javascript
+import {component} from "@gerrico/react-components"
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## List of components
 
-### `npm run build`
+- [Selector](#selector)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Selector
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A button to toggle between states
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Props
 
-### `npm run eject`
+|Name|Description|Type|Required|Default|
+|-|-|-|-|-|
+|id|Unique id for the component|string|Yes||
+|status|The status of the selector (false -> left, true -> right)|boolean|Yes||
+|onClick|Action to perform|function|Yes||
+|colorOff?|The color of the selector while is **off**|string|No|#444|
+|colorOff?|The color of the selector while is **on**|string|No|#444|
+|textColor?|The color of the text inside the selector|string|No|#FFF|
+|disabled?|If true, the selector is disabled|boolean|No|false|
+|className?|Provide other style|string|No|undefined|
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Example
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```Javascript
+import React, { useState } from "react";
+import { Selector } from "@gerrico/react-components";
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+function App() {
+  const [status, setStatus] = useState(false);
+  return (
+    <div>
+      <Selector
+        id="selector"
+        status={status}
+        onClick={() => {
+          setStatus(!status);
+        }}
+        items={["OFF", "ON"]}
+        colorOff="#2080B0"
+        colorOn="#20B080"
+      />
+    </div>
+  );
+}
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+export default App;
+```
