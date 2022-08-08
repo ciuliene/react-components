@@ -42,7 +42,7 @@ A button to toggle between states.
 import React, { useState } from "react";
 import { Selector } from "@gerrico/react-components";
 
-const App: React.FC = () => {
+const App = () => {
   const [status, setStatus] = useState(false);
   
   return (
@@ -85,7 +85,7 @@ A loader with twelve bubbles that increase and decrease their size.
 import React from "react";
 import { BubbleLoader } from "./components";
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <div>
       <BubbleLoader left="50vw" top="50vh" color="#20E080" />
@@ -118,7 +118,7 @@ A loader with three bouncing balls.
 import React from "react";
 import { BounceLoader } from "./components";
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <div>
       <BounceLoader left="50vw" top="50vh" color="#2080E0" size={0.8}/>
@@ -152,7 +152,7 @@ A loader that simulates a radar signal
 import React from "react";
 import { RadarLoader } from "./components";
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <div>
       <RadarLoader left="50vw" top="62vh" size={1} fill={false} />
