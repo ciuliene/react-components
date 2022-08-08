@@ -15,6 +15,7 @@ npm install @gerrico/react-components
 - [Selector](#selector)
 - [BubbleLoader](#bubbleloader)
 - [BounceLoader](#bounceloader)
+- [RadarLoader](#radarloader)
 
 ## Selector
 
@@ -120,6 +121,40 @@ const App: React.FC = () => {
   return (
     <div>
       <BounceLoader left="50vw" top="50vh" color="#2080E0" size={0.8}/>
+    </div>
+  );
+};
+
+export default App;
+```
+
+## RadarLoader
+
+A loader that simulates a radar signal
+
+![Alt Text](./images/radarLoader.gif)
+
+### Props
+
+|Name|Description|Type|Required|Default|
+|-|-|-|-|-|
+|left?|Set the distance from the left margin|any|No|50vw|
+|top?|Set the distance from the top margin|any|No|50vh|
+|size?|A multiplying factor for radar size|number|No|1|
+|color?|The color of the radar|string|No|#be97e8|
+|fill?|Only border (if false) or entire circle (if true)|boolean|No|false|
+|className?|Provide other style|string|No|undefined|
+
+### Example
+
+```Javascript
+import React from "react";
+import { RadarLoader } from "./components";
+
+const App: React.FC = () => {
+  return (
+    <div>
+      <RadarLoader left="50vw" top="62vh" size={1} fill={false} />
     </div>
   );
 };
