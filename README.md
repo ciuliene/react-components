@@ -20,6 +20,8 @@ npm install @gerrico/react-components
 
 A button to toggle between states.
 
+![Alt Text](./images/selector.gif)
+
 ### Props
 
 |Name|Description|Type|Required|Default|
@@ -65,6 +67,7 @@ export default App;
 
 A loader with twelve bubbles that increase and decrease their size.
 
+![Alt Text](./images/bubbleLoader.gif)
 ### Props
 
 |Name|Description|Type|Required|Default|
@@ -94,6 +97,8 @@ export default App;
 ## BounceLoader
 
 A loader with three bouncing balls.
+
+![Alt Text](./images/bounceLoader.gif)
 
 ### Props
 
