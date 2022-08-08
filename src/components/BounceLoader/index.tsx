@@ -84,8 +84,13 @@ type BounceLoaderProps = {
 export const BounceLoader: React.FC<BounceLoaderProps> = (props) => {
   return (
     <BounceLoaderContainer left={props.left} top={props.top}>
-      {[0, 1, 2].map((ball) => (
-        <BouncingBall index={ball} color={props.color} size={props.size} />
+      {[0, 1, 2].map((ball, i) => (
+        <BouncingBall
+          key={i}
+          index={ball}
+          color={props.color}
+          size={props.size}
+        />
       ))}
     </BounceLoaderContainer>
   );

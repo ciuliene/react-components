@@ -60,6 +60,7 @@ export const BubbleLoader: React.FC<BubbleLoaderProps> = (props) => {
     <div className={props.className}>
       {bubblePos.map((bubble, i) => (
         <Bubble
+          key={i}
           index={i}
           x={bubble.x}
           y={bubble.y}
