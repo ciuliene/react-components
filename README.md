@@ -14,7 +14,7 @@ npm install @gerrico/react-components
 
 - [Selector](#selector)
 - [BubbleLoader](#bubbleloader)
-- [BounceLoder](#bounceloader)
+- [BounceLoader](#bounceloader)
 
 ## Selector
 
@@ -107,7 +107,7 @@ A loader with three bouncing balls.
 |left?|Set the distance from the left margin|any|No|50vw|
 |top?|Set the distance from the top margin|any|No|50vh|
 |color?|The color of the balls|string|No|#DDD|
-|size|A moltiplicator for balls size|number|No|1|
+|size?|A multiplying factor for balls size|number|No|1|
 |className?|Provide other style|string|No|undefined|
 
 ### Example
