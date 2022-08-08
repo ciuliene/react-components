@@ -73,8 +73,9 @@ A loader with twelve bubbles that increase and decrease their size.
 
 |Name|Description|Type|Required|Default|
 |-|-|-|-|-|
-|left?|Set the distance from the left margin|any|No|50vw|
-|top?|Set the distance from the top margin|any|No|50vh|
+|left?|Set the distance from the left margin|string|No|50%|
+|top?|Set the distance from the top margin|string|No|50%|
+|bubbleSize?|Set the size of the bubbles (the size of the component doesn't change)|number|No|1|
 |color?|The color of the bubbles|string|No|#DDD|
 |className?|Provide other style|string|No|undefined|
 
@@ -105,10 +106,10 @@ A loader with three bouncing balls.
 
 |Name|Description|Type|Required|Default|
 |-|-|-|-|-|
-|left?|Set the distance from the left margin|any|No|50vw|
-|top?|Set the distance from the top margin|any|No|50vh|
-|color?|The color of the balls|string|No|#DDD|
+|left?|Set the distance from the left margin|string|No|50%|
+|top?|Set the distance from the top margin|string|No|50%|
 |size?|A multiplying factor for balls size|number|No|1|
+|color?|The color of the balls|string|No|#DDD|
 |className?|Provide other style|string|No|undefined|
 
 ### Example
@@ -138,8 +139,8 @@ A loader that simulates a radar signal
 
 |Name|Description|Type|Required|Default|
 |-|-|-|-|-|
-|left?|Set the distance from the left margin|any|No|50vw|
-|top?|Set the distance from the top margin|any|No|50vh|
+|left?|Set the distance from the left margin|string|No|50%|
+|top?|Set the distance from the top margin|string|No|50%|
 |size?|A multiplying factor for radar size|number|No|1|
 |color?|The color of the radar|string|No|#be97e8|
 |fill?|Only border (if false) or entire circle (if true)|boolean|No|false|

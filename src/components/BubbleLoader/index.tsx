@@ -13,6 +13,7 @@ type BubbleProps = {
   y: number;
   left?: any;
   top?: any;
+  bubbleSize?: number;
   color?: string;
 };
 
@@ -23,7 +24,7 @@ const Bubble = styled.div`
   border-radius: 100%;
   position: absolute;
   transform: ${(props: BubbleProps): string =>
-    `translate(calc(${props.x}px), calc(${props.y}px))`}};
+    `translate(${props.x}px, ${props.y}px) scale(${props.bubbleSize || 1}) `}};
   left: ${(props: BubbleProps): any => props.left};
   top: ${(props: BubbleProps): any => props.top};
   animation-name: ${Animation};
@@ -36,6 +37,7 @@ const Bubble = styled.div`
 type BubbleLoaderProps = {
   left?: any;
   top?: any;
+  bubbleSize?: any;
   color?: string;
   className?: string;
 };
@@ -66,6 +68,7 @@ export const BubbleLoader: React.FC<BubbleLoaderProps> = (props) => {
           y={bubble.y}
           left={props.left}
           top={props.top}
+          bubbleSize={props.bubbleSize}
           color={props.color}
         />
       ))}
