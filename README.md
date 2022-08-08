@@ -10,19 +10,11 @@ To install the library, run this command:
 npm install @gerrico/react-components
 ```
 
-## Usage
-
-To import components add this statement to your code:
-
-```Javascript
-import {component} from "@gerrico/react-components"
-```
-
 ## List of components
 
 - [Selector](#selector)
 - [BubbleLoader](#bubbleloader)
-- [BounceLoader](#bounceloader)
+- [BounceLoder](#bounceloader)
 
 ## Selector
 
@@ -71,7 +63,7 @@ export default App;
 
 ## BubbleLoader
 
-A loader with twelve bubbles that increase and decrease their sizes.
+A loader with twelve bubbles that increase and decrease their size.
 
 ### Props
 
@@ -109,8 +101,8 @@ A loader with three bouncing balls.
 |-|-|-|-|-|
 |left?|Set the distance from the left margin|any|No|50vw|
 |top?|Set the distance from the top margin|any|No|50vh|
-|color?|The color of the bubbles|string|No|#DDD|
-|size|A moltiplicator for ball sizes|number|No|1|
+|color?|The color of the balls|string|No|#DDD|
+|size|A moltiplicator for balls size|number|No|1|
 |className?|Provide other style|string|No|undefined|
 
 ### Example
