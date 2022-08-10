@@ -23,11 +23,7 @@ const App: React.FC = () => {
       <BubbleLoader left="50vw" top="20vh" color="#20E080" bubbleSize={1} />
       <BounceLoader left="50vw" top="38vh" color="#2080E0" size={1.5} />
       <RadarLoader left="50vw" top="62vh" size={1} fill={false} />
-      <Button
-        className="btn"
-        onClick={() => alert("Pressed!")}
-        disabled={status}
-      >
+      <Button className="btn" onClick={(e) => console.log(e)} disabled={status}>
         Press
       </Button>
     </div>

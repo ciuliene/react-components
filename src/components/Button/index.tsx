@@ -66,7 +66,7 @@ const ButtonTag = styled.div`
 
 type ButtonProps = {
   children?: string;
-  onClick: () => any;
+  onClick: (e?: any) => any;
   color?: string;
   disabled?: boolean;
   className?: string;
@@ -77,7 +77,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
     <ButtonTag
       className={props.className}
       color={props.color}
-      onClick={() => !props.disabled && props.onClick()}
+      onClick={(e) => !props.disabled && props.onClick(e)}
       disabled={props.disabled}
     >
       {props.children}
