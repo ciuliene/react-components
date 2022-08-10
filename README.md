@@ -12,10 +12,24 @@ npm install @gerrico/react-components
 
 ## List of components
 
-- [Selector](#selector)
-- [BubbleLoader](#bubbleloader)
-- [BounceLoader](#bounceloader)
-- [RadarLoader](#radarloader)
+- [React Components](#react-components)
+  - [Install](#install)
+  - [List of components](#list-of-components)
+  - [Selector](#selector)
+    - [Props](#props)
+    - [Example](#example)
+  - [BubbleLoader](#bubbleloader)
+    - [Props](#props-1)
+    - [Example](#example-1)
+  - [BounceLoader](#bounceloader)
+    - [Props](#props-2)
+    - [Example](#example-2)
+  - [RadarLoader](#radarloader)
+    - [Props](#props-3)
+    - [Example](#example-3)
+  - [Button](#button)
+    - [Props](#props-4)
+    - [Example](#example-4)
 
 ## Selector
 
@@ -156,6 +170,44 @@ const App = () => {
   return (
     <div>
       <RadarLoader left="50vw" top="62vh" size={1} fill={false} />
+    </div>
+  );
+};
+
+export default App;
+```
+
+## Button
+
+A simple button with background color selection and automatic text color.
+
+![Alt Text](./images/button.png)
+
+### Props
+
+|Name|Description|Type|Required|Default|
+|-|-|-|-|-|
+|onClick|Action performed after clicking it|string|Yes||
+|color|Background color for the button (text color is always black or white, based on the background color|string|No|#2090F0|
+|disabled?|If true, the button is disabled|boolean|No|false|
+|className?|Provide other style|string|No|undefined|
+
+ATTENTION: currently, the `color` prop must be in hex format (#RRGGBB). This is due to the calculation of the text color. In future, there will be the possibility to set the color by:
+
+-  picking it from a list of standard colors (*primary*, *info*, *warning*, *danger*, etc.)
+-  writing the exact color (`red`, `blue`, `green`, etc.)
+-  by entering the color coding (*rgb*, *hsl*, etc.)
+
+### Example
+
+```Javascript
+import React from "react";
+import { RadarLoader } from "./components";
+
+const App = () => {
+  return (
+    <div>
+      <Button onClick={() => alert("Pressed!")}>Press Me!</Button>
     </div>
   );
 };
