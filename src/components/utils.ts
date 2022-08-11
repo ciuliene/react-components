@@ -24,3 +24,25 @@ export const getBlackOrWhite = (bgColor: string) => {
     return "#000";
   }
 };
+
+
+export const translateLoader = (left?: any, top?: any, relativeLeft: string = "0%", relativeTop: string = "0%", absoluteLeft: string = "-50%", absoluteTop: string = "-50%"): string => {
+  let tLeft =
+    !left?.toString().includes("vw")
+      ? relativeLeft
+      : absoluteLeft;
+  let tTop =
+    !top?.toString().includes("vh")
+      ? relativeTop
+      : absoluteTop;
+
+  return tLeft + "," + tTop;
+};
+
+export const loaderPosition = (
+  left?: any, top?: any
+): string => {
+  if (left?.includes("vw") || top?.includes("vh"))
+    return "absolute";
+  else return "relative";
+};

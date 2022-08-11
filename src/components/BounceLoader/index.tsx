@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { loaderPosition, translateLoader } from "../utils";
 
 const Animation0 = keyframes`
   0% {
@@ -61,16 +62,20 @@ const BouncingBall = styled.div`
 `;
 
 type BounceLoaderContainerProps = {
-  left?: string;
-  top?: string;
+  left?: any;
+  top?: any;
 };
 
 const BounceLoaderContainer = styled.div`
   display: flex;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: ${(props: BounceLoaderContainerProps): string => props.left || "50%"};
-  top: ${(props: BounceLoaderContainerProps): string => props.top || "50%"};
+  position: ${(props: BounceLoaderContainerProps): string =>
+    loaderPosition(props.left, props.top)};
+  transform: translate(
+    ${(props: BounceLoaderContainerProps): string =>
+      translateLoader(props.left, props.top)}
+  );
+  left: ${(props: BounceLoaderContainerProps): string => props.left};
+  top: ${(props: BounceLoaderContainerProps): string => props.top};
 `;
 
 type BounceLoaderProps = {
@@ -83,7 +88,11 @@ type BounceLoaderProps = {
 
 export const BounceLoader: React.FC<BounceLoaderProps> = (props) => {
   return (
-    <BounceLoaderContainer left={props.left} top={props.top}>
+    <BounceLoaderContainer
+      left={props.left}
+      top={props.top}
+      className={props.className}
+    >
       {[0, 1, 2].map((ball, i) => (
         <BouncingBall
           key={i}

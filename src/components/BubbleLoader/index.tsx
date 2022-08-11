@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { loaderPosition, translateLoader } from "../utils";
 
 const Animation = keyframes`
     0% {width: 0; height: 0;}
@@ -17,21 +18,58 @@ type BubbleProps = {
   color?: string;
 };
 
+const translateBubble = (props: BubbleProps): string => {
+  return props.x + "px, " + props.y + "px";
+};
+
+const bubbleSize = (props: BubbleProps): string =>
+  (props.bubbleSize || 1).toString();
+
 const Bubble = styled.div`
-  width: 0;
-  height: 0;
   background: ${(props: BubbleProps): string => props.color || "#DDD"};
   border-radius: 100%;
   position: absolute;
-  transform: ${(props: BubbleProps): string =>
-    `translate(${props.x}px, ${props.y}px) scale(${props.bubbleSize || 1}) `}};
-  left: ${(props: BubbleProps): any => props.left};
-  top: ${(props: BubbleProps): any => props.top};
+  transform: translate(${translateBubble}) scale(${bubbleSize});
   animation-name: ${Animation};
   animation-duration: 0.8s;
   animation-delay: ${(props: BubbleProps): string =>
     `calc(0.07s * ${props.index})`};
   animation-iteration-count: infinite;
+  padding: 0 !important;
+`;
+
+const bubblePos = [
+  { x: 40, y: 0 },
+  { x: 60, y: 6 },
+  { x: 74, y: 20 },
+  { x: 80, y: 40 },
+  { x: 74, y: 60 },
+  { x: 60, y: 74 },
+  { x: 40, y: 80 },
+  { x: 20, y: 74 },
+  { x: 6, y: 60 },
+  { x: 0, y: 40 },
+  { x: 6, y: 20 },
+  { x: 20, y: 6 },
+];
+
+type BubbleLoaderContainerProps = {
+  left?: any;
+  top?: any;
+  className?: string;
+};
+
+const BubbleLoaderContainer = styled.div`
+  width: 95px;
+  height: 95px;
+  position: ${(props: BubbleLoaderContainerProps): string =>
+    loaderPosition(props.left, props.top)};
+  left: ${(props: BubbleLoaderContainerProps): string => props.left};
+  top: ${(props: BubbleLoaderContainerProps): string => props.top};
+  transform: translate(
+    ${(props: BubbleLoaderContainerProps): string =>
+      translateLoader(props.left, props.top)}
+  );
 `;
 
 type BubbleLoaderProps = {
@@ -42,24 +80,13 @@ type BubbleLoaderProps = {
   className?: string;
 };
 
-const bubblePos = [
-  { x: -8, y: -48 },
-  { x: 12, y: -42 },
-  { x: 26, y: -28 },
-  { x: 32, y: -8 },
-  { x: 26, y: 12 },
-  { x: 12, y: 26 },
-  { x: -8, y: 32 },
-  { x: -28, y: 26 },
-  { x: -42, y: 12 },
-  { x: -48, y: -8 },
-  { x: -42, y: -28 },
-  { x: -28, y: -42 },
-];
-
 export const BubbleLoader: React.FC<BubbleLoaderProps> = (props) => {
   return (
-    <div className={props.className}>
+    <BubbleLoaderContainer
+      left={props.left}
+      top={props.top}
+      className={props.className}
+    >
       {bubblePos.map((bubble, i) => (
         <Bubble
           key={i}
@@ -72,6 +99,6 @@ export const BubbleLoader: React.FC<BubbleLoaderProps> = (props) => {
           color={props.color}
         />
       ))}
-    </div>
+    </BubbleLoaderContainer>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { loaderPosition, translateLoader } from "../utils";
 
 const Animation = keyframes`
 0% {
@@ -46,23 +47,29 @@ const RadarCircle = styled.div`
 `;
 
 type RadarLoaderContainerProps = {
-  left?: string;
-  top?: string;
+  left?: any;
+  top?: any;
   size?: number;
   className?: string;
 };
 
 const RadarLoaderContainer = styled.div`
-  position: absolute;
-  transform: translate(-50%, -50%)
+  width: 100px;
+  height: 100px;
+  position: ${(props: RadarLoaderContainerProps): string =>
+    loaderPosition(props.left, props.top)};
+  transform: translate(
+      ${(props: RadarLoaderContainerProps): string =>
+        translateLoader(props.left, props.top, "50%", "50%", "0%", "0%")}
+    )
     scale(${(props: RadarLoaderContainerProps): number => props.size || 1});
-  left: ${(props: RadarLoaderContainerProps): string => props.left || "50%"};
-  top: ${(props: RadarLoaderContainerProps): string => props.top || "50%"};
+  left: ${(props: RadarLoaderContainerProps): string => props.left};
+  top: ${(props: RadarLoaderContainerProps): string => props.top};
 `;
 
 type RadarLoaderProps = {
-  left?: string;
-  top?: string;
+  left?: any;
+  top?: any;
   size?: number;
   color?: string;
   fill?: boolean;

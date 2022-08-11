@@ -1,12 +1,14 @@
 .App {
   text-align: center;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.btn{
-  margin: 30px;
+table tbody tr td{
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
 }

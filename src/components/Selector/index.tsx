@@ -66,8 +66,11 @@ const SelectorTable = styled.table`
 `;
 
 const SelectorRow = styled.tr`
-  & > * {
+  & td {
     padding: 1px !important;
+    display: table-cell !important;
+    vertical-align: inherit;
+    background: unset !important;
   }
 `;
 
@@ -113,9 +116,7 @@ export const Selector: React.FC<SelectorProps> = (props) => {
           </th>
         </SelectorRow>
         <SelectorRow>
-          <td>
-            <span>{props.items ? props.items[0] : " "}</span>
-          </td>
+          <td>{props.items ? props.items[0] : " "}</td>
           <td>{props.items ? props.items[1] : " "}</td>
         </SelectorRow>
       </tbody>
