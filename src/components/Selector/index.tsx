@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
+import { userSelectNone } from "../utils";
 
 type SelectorTableProps = {
   id: string;
@@ -41,6 +42,7 @@ type SelectorProps = {
 };
 
 const SelectorTable = styled.table`
+  margin: 0;
   text-align: center;
   transform: scale(1);
   width: var(--width);
@@ -57,12 +59,7 @@ const SelectorTable = styled.table`
   min-height: 30px;
   min-width: 60px;
   transition: all 0.2s;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  ${userSelectNone}
 `;
 
 const SelectorRow = styled.tr`

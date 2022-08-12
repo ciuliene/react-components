@@ -46,3 +46,10 @@ export const loaderPosition = (
     return "absolute";
   else return "relative";
 };
+
+export const userSelectNone = `-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;`

@@ -5,37 +5,30 @@ import {
   BounceLoader,
   RadarLoader,
   Button,
+  Checkbox,
+  Dropdown,
 } from "./components";
 import "./App.css";
 
 const App: React.FC = () => {
   const [status, setStatus] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  const [dropdownSelected, setDropdownSelected] = useState(0);
+  const [seasons, setSeasons] = useState([
+    { text: "Winter", checked: false },
+    { text: "Spring", checked: false },
+    { text: "Summer", checked: false },
+    { text: "Autumn", checked: false },
+  ]);
+
+  const onChangeDropdownValue = (value, index) => {
+    setDropdownSelected(index);
+  };
 
   return (
     <div className="App" data-testid="test-selector">
       <table border={1}>
         <tbody>
-          <tr>
-            <th>Selector</th>
-            <td>
-              <Selector
-                id="selector"
-                status={status}
-                onClick={() => setStatus(!status)}
-                items={["OFF", "ON"]}
-                colorOn="#F0D000"
-              />
-            </td>
-          </tr>
-
-          <tr>
-            <th>Button</th>
-            <td>
-              <Button onClick={(e) => console.log(e)} disabled={status}>
-                Press
-              </Button>
-            </td>
-          </tr>
           <tr>
             <th>BubbleLoader</th>
             <td>
@@ -57,6 +50,108 @@ const App: React.FC = () => {
             <td>
               <div>
                 <RadarLoader fill={false} />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th>Selector</th>
+            <td>
+              <Selector
+                id="selector"
+                status={status}
+                onClick={() => setStatus(!status)}
+                items={["OFF", "ON"]}
+                colorOn="#F0D000"
+                disabled={disabled}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>Checkbox</th>
+            <td>
+              <div>
+                <Checkbox
+                  status={status}
+                  onClick={() => setStatus(!status)}
+                  text="Checkbox"
+                  disabled={disabled}
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th>Button</th>
+            <td>
+              <Button onClick={(e) => setDisabled(!disabled)}>Press</Button>
+            </td>
+          </tr>
+          <tr>
+            <th>Dropdown</th>
+            <td>
+              <div>
+                <Dropdown
+                  items={[
+                    {
+                      text: "London",
+                    },
+                    {
+                      text: "Berlin",
+                    },
+                    {
+                      text: "Paris",
+                    },
+                    {
+                      text: "New York",
+                    },
+                    {
+                      text: "Rome",
+                    },
+                    {
+                      text: "Dubai",
+                    },
+                    {
+                      text: "Madrid",
+                    },
+                    {
+                      text: "Tokyo",
+                    },
+                    {
+                      text: "Hong Kong",
+                    },
+                    {
+                      text: "Los Angeles",
+                    },
+                    {
+                      text: "Buenos Aires",
+                    },
+                    {
+                      text: "Sydney",
+                    },
+                  ]}
+                  onSelect={onChangeDropdownValue}
+                  selected={dropdownSelected}
+                  disabled={disabled}
+                />
+                <br />
+                <Dropdown
+                  items={seasons.map((season, i) => {
+                    return {
+                      text: season.text,
+                      checkbox: true,
+                      status: season.checked,
+                      onSelect() {
+                        let newSeasons = [...seasons];
+
+                        newSeasons[i].checked = !newSeasons[i].checked;
+
+                        setSeasons(newSeasons);
+                      },
+                    };
+                  })}
+                  title={`Seasons (${seasons.reduce((acc, season) => {
+                    return acc + (season.checked ? 1 : 0);
+                  }, 0)})`}
+                />
               </div>
             </td>
           </tr>
