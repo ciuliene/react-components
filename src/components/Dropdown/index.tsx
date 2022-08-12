@@ -58,7 +58,7 @@ const DropdownMenu = styled.div`
 `;
 
 type DropdownItemProps = {
-  text: string;
+  text?: string;
   checkbox?: boolean;
   status?: boolean;
   onSelect?: (e: any) => any;
@@ -68,16 +68,35 @@ type DropdownItemProps = {
 };
 
 const DropdownItem = styled.div`
-  padding: 12px;
-  background: #fcfcfc;
+  padding: ${(props: DropdownItemProps): string =>
+    props.divider ? "3px" : "12px"};
+  background: ${(props: DropdownItemProps): string =>
+    props.header ? "#f0ffff" : "#fcfcfc"};
   text-align: left !important;
   display: flex !important;
   align-items: left !important;
-  cursor: pointer;
+  cursor: ${(props: DropdownItemProps): string =>
+    props.header || props.divider || props.disabled ? "auto" : "pointer"};
   transition: all 0.2s;
+  font-weight: ${(props: DropdownItemProps): string =>
+    props.header ? "700" : "auto"};
+
+  color: ${(props: DropdownItemProps): string =>
+    props.disabled ? "#AAA" : "#000"};
 
   &:hover {
-    background: #f0f0f0;
+    background: ${(props: DropdownItemProps): string =>
+      props.header || props.divider || props.disabled ? "" : "#f0f0f0"};
+  }
+
+  &:after {
+    content: "";
+    position: relative !important;
+    display: ${(props: DropdownItemProps): string =>
+      props.divider ? "flex" : "none"};
+    width: 100%;
+    height: 1px;
+    background: #aaa;
   }
 `;
 
@@ -130,12 +149,17 @@ export const Dropdown: React.FC<DropdownProps> = (props) => {
           <DropdownItem
             key={i}
             id={`dropdown-item-${i}`}
+            header={item.header}
+            divider={item.divider}
+            disabled={item.disabled}
             onClick={(e) => {
-              props.onSelect && props.onSelect(item.text || "", i);
-              if (!item.checkbox) {
-                setIsOpen(!isOpen);
-              } else {
-                item.onSelect && item.onSelect(e);
+              if (!item.divider && !item.header && !item.disabled) {
+                props.onSelect && props.onSelect(item.text || "", i);
+                if (!item.checkbox) {
+                  setIsOpen(!isOpen);
+                } else {
+                  item.onSelect && item.onSelect(e);
+                }
               }
             }}
           >

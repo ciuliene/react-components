@@ -286,7 +286,7 @@ Each item of the array can have these props:
 
 | Name      | Description                                                                      | Type     | Required | Default |
 | --------- | -------------------------------------------------------------------------------- | -------- | -------- | ------- |
-| text      | The text of the item                                                             | string   | Yes      |         |
+| text?     | The text of the item                                                             | string   | No       |         |
 | checkbox? | Set if the item is a normal string or a checkbox                                 | boolean  | No       | false   |
 | status?   | The status of the checkbox (if checkbox is `true`)                               | boolean  | No       | false   |
 | onSelect? | Action to perform after selecting a checkbox item                                | function | No       |         |

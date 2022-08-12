@@ -16,6 +16,7 @@ const App: React.FC = () => {
   const [dropdownSelected, setDropdownSelected] = useState(0);
   const [seasons, setSeasons] = useState([
     { text: "Winter", checked: false },
+    { divider: true },
     { text: "Spring", checked: false },
     { text: "Summer", checked: false },
     { text: "Autumn", checked: false },
@@ -92,40 +93,41 @@ const App: React.FC = () => {
                 <Dropdown
                   items={[
                     {
-                      text: "London",
-                    },
-                    {
-                      text: "Berlin",
+                      header: true,
+                      text: "Europe",
                     },
                     {
                       text: "Paris",
                     },
                     {
-                      text: "New York",
+                      disabled: true,
+                      text: "London",
                     },
                     {
                       text: "Rome",
                     },
                     {
-                      text: "Dubai",
+                      text: "Berlin",
                     },
                     {
-                      text: "Madrid",
+                      divider: true,
                     },
                     {
-                      text: "Tokyo",
+                      header: true,
+                      text: "America",
                     },
                     {
-                      text: "Hong Kong",
+                      text: "New York",
                     },
                     {
-                      text: "Los Angeles",
-                    },
-                    {
+                      disabled: true,
                       text: "Buenos Aires",
                     },
                     {
-                      text: "Sydney",
+                      text: "Toronto",
+                    },
+                    {
+                      text: "Los Angeles",
                     },
                   ]}
                   onSelect={onChangeDropdownValue}
@@ -135,6 +137,11 @@ const App: React.FC = () => {
                 <br />
                 <Dropdown
                   items={seasons.map((season, i) => {
+                    if (season.divider) {
+                      return {
+                        divider: true,
+                      };
+                    }
                     return {
                       text: season.text,
                       checkbox: true,
