@@ -1,5 +1,7 @@
 # React Components
 
+![npm](https://img.shields.io/npm/v/%40gerrico%2Freact-components)
+
 This library provides a list of useful components for React projects
 
 ## Install
